@@ -11,6 +11,7 @@ python = "^3.11"
 fastapi = "^0.89.1"
 uvicorn = "^0.20.0"
 python-decouple = "^3.7"
+ormar = {extras = ["postgres"], version = "^0.12.1"}
 
 
 [tool.poetry.group.dev.dependencies]

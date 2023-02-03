@@ -1,0 +1,40 @@
+version: "3.8"
+
+services:
+#   app:
+#     build: .
+#     ports:
+#       - 8000:8000
+
+  postgres:
+    image: postgres:15.1-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: eanima
+    volumes:
+      - eanima_database:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  cache:
+    image: redis:6.2-alpine
+    ports:
+      - "6379:6379"
+    command: redis-server --save 20 1
+    volumes:
+      - cache:/data
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: pgadmin@example.com
+      PGADMIN_DEFAULT_PASSWORD: pgadmin
+    ports:
+      - "5050:80"
+
+volumes:
+  eanima_database:
+  cache:
