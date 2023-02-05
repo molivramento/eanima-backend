@@ -4,7 +4,7 @@ from fastapi import APIRouter
 
 from app.users.models import User
 from app.users.providers.models import Provider
-from app.users.providers.schema import ProviderIn
+from app.users.providers.schemas import ProviderIn
 
 router = APIRouter()
 
