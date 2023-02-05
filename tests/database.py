@@ -1,14 +1,8 @@
 import ormar
 import databases
 import sqlalchemy
-from decouple import config
 
-name = config('name')
-user = config('user')
-password = config('password')
-host = config('host')
-port = config('port')
-DATABASE_URL = f"postgresql://{user}:{password}@{host}:{port}/{name}"
+DATABASE_URL = f"sqlite:///dev.db"
 
 database = databases.Database(DATABASE_URL)
 metadata = sqlalchemy.MetaData()
@@ -21,5 +15,5 @@ class BaseMeta(ormar.ModelMeta):
 
 def config_database(database_url=DATABASE_URL):
     engine = sqlalchemy.create_engine(database_url)
-    # BaseMeta.metadata.drop_all(engine)
+    BaseMeta.metadata.drop_all(engine)
     BaseMeta.metadata.create_all(engine)

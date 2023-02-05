@@ -4,11 +4,13 @@ from config.database import database, config_database
 
 from app.users.api import router as users
 from app.users.providers.api import router as providers
+from app.users.employees.api import router as employees
 
 app = FastAPI()
 
 app.include_router(users, prefix='/users', tags=['Users'])
 app.include_router(providers, prefix='/providers', tags=['Providers'])
+app.include_router(employees, prefix='/employees', tags=['Employees'])
 
 app.state.database = database
 

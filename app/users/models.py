@@ -1,7 +1,6 @@
 import ormar
 
 from uuid import UUID
-
 from config.database import BaseMeta
 
 

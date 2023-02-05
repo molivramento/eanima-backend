@@ -3,14 +3,14 @@ from uuid import UUID, uuid4
 from fastapi import APIRouter, HTTPException, status
 
 from app.users.models import User
-from app.users.schema import UserIn, UserOut
+from app.users.schemas import UserIn, UserOut
 
 router = APIRouter()
 
 
 @router.get('/', response_model=list[UserOut])
 async def get_users():
-    return await User.objects.order_by('email').select_all(follow=True).all()
+    return await User.objects.prefetch_related(['providers', 'employees']).all()
 
 
 @router.get('/{user_id}/', response_model=UserOut)
