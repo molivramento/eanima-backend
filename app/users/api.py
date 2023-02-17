@@ -9,7 +9,7 @@ router = APIRouter()
 
 @router.get('/', response_model=list[UserOut])
 async def get_users():
-    return await User.objects.prefetch_related(['providers', 'permission']).all()
+    return await User.objects.prefetch_related(['providers']).all()
 
 
 @router.get('/{user_id}/', response_model=UserOut)
