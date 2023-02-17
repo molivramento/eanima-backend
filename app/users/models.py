@@ -1,5 +1,4 @@
 import ormar
-
 from uuid import UUID
 from config.database import BaseMeta
 
@@ -14,3 +13,4 @@ class User(ormar.Model):
     only_provider: bool = ormar.Boolean()
     active: bool = ormar.Boolean(default=True)
     verified: bool = ormar.Boolean(default=False)
+    admin: bool = ormar.Boolean(default=False)

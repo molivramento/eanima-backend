@@ -1,5 +1,4 @@
 from uuid import UUID, uuid4
-
 from fastapi import APIRouter, HTTPException, status
 
 from app.users.models import User
@@ -10,7 +9,7 @@ router = APIRouter()
 
 @router.get('/', response_model=list[UserOut])
 async def get_users():
-    return await User.objects.prefetch_related(['providers', 'employees']).all()
+    return await User.objects.prefetch_related(['providers', 'permission']).all()
 
 
 @router.get('/{user_id}/', response_model=UserOut)

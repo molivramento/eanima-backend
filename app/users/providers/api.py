@@ -32,6 +32,6 @@ async def update_provider(payload: Provider):
 
 
 @router.delete('/')
-async def provider_delete(provider_id: UUID):
+async def delete_provider(provider_id: UUID):
     provider = Provider.objects.get_or_none(id=provider_id)
     return provider.delete()

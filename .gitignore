@@ -1,3 +1,4 @@
 config/.env
 tests
-dev.db
+dev.sqlite
+identifier.sqlite
