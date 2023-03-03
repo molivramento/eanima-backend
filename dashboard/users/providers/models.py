@@ -4,7 +4,7 @@ from uuid import UUID
 
 from config.database import BaseMeta
 
-from app.users.models import User
+from dashboard.users.models import User
 
 
 class Provider(ormar.Model):

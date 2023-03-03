@@ -2,8 +2,8 @@ from uuid import UUID
 
 from fastapi import APIRouter
 
-from app.users.customers.models import Customer
-from app.users.customers.schemas import CustomerIn
+from dashboard.users.customers.models import Customer
+from dashboard.users.customers.schemas import CustomerIn
 
 router = APIRouter()
 

@@ -4,7 +4,7 @@ import ormar
 
 from config.database import BaseMeta
 
-from app.users.models import User
+from dashboard.users.models import User
 
 
 class Employee(ormar.Model):

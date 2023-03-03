@@ -1,4 +1,4 @@
-from app.users.employees.models import Employee
+from dashboard.users.employees.models import Employee
 
 EmployeeIn = Employee.get_pydantic(
     exclude={

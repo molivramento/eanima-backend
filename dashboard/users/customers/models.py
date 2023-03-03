@@ -2,7 +2,7 @@ from uuid import UUID
 
 import ormar
 
-from app.users.models import User
+from dashboard.users.models import User
 from config.database import BaseMeta
 
 

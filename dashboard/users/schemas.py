@@ -1,7 +1,7 @@
-from app.users.models import User
-from app.users.providers.models import Provider
-from app.users.employees.models import Employee
-from app.users.customers.models import Customer
+from dashboard.users.models import User
+from dashboard.users.providers.models import Provider
+from dashboard.users.employees.models import Employee
+from dashboard.users.customers.models import Customer
 
 UserIn = User.get_pydantic(
     exclude={

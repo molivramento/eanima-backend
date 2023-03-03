@@ -2,9 +2,9 @@ from uuid import UUID, uuid4
 
 from fastapi import APIRouter
 
-from app.users.models import User
-from app.users.providers.models import Provider
-from app.users.providers.schemas import ProviderIn
+from dashboard.users.models import User
+from dashboard.users.providers.models import Provider
+from dashboard.users.providers.schemas import ProviderIn
 
 router = APIRouter()
 

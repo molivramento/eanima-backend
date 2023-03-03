@@ -1,20 +1,14 @@
 from fastapi import FastAPI
 
-from config.database import database, config_database
-
-from app.users.api import router as users
-from app.users.providers.api import router as providers
-from app.users.employees.api import router as employees
-from app.users.customers.api import router as customers
+from config.database import config_database
+from dashboard.app import app as dashboard
+from config.database import database
 
 app = FastAPI()
 
-app.include_router(users, prefix='/users', tags=['Users'])
-app.include_router(providers, prefix='/providers', tags=['Users - Providers'])
-app.include_router(customers, prefix='/customers', tags=['Users - Customers'])
-app.include_router(employees, prefix='/employees', tags=['Users - Employees'])
-
 app.state.database = database
+
+app.mount('/dashboard', dashboard)
 
 
 @app.on_event("startup")
